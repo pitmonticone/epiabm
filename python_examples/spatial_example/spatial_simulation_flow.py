@@ -26,10 +26,10 @@ pe.routine.Simulation.set_random_seed(seed=30)
 # simulation.
 
 pop_params = {
-    "population_size": 10000,
-    "cell_number": 200,
-    "microcell_number": 2,
-    "household_number": 5,
+    "population_size": 100000,
+    "cell_number": 10,
+    "microcell_number": 100,
+    "household_number": 50,
 }
 
 # Create a population framework based on the parameters given.
@@ -41,17 +41,15 @@ file_loc = "python_examples/spatial_example/input.csv"
 #                                                        random_seed=42)
 
 # Configure population with input data
-pe.routine.ToyPopulationFactory.assign_cell_locations(population)
-pe.routine.FilePopulationFactory.print_population(population, file_loc)
-
-
+pe.routine.ToyPopulationFactory.assign_cell_locations(population, method='grid')
 # pe.routine.FilePopulationFactory.print_population(population, file_loc)
+
 
 
 # sim_ and file_params give details for the running of the simulations and
 # where output should be written to.
-sim_params = {"simulation_start_time": 0, "simulation_end_time": 50,
-              "initial_infected_number": 1, "initial_infect_cell": True}
+sim_params = {"simulation_start_time": 0, "simulation_end_time": 5000,
+              "initial_infected_number": 10, "initial_infect_cell": False}
 
 file_params = {"output_file": "output.csv",
                "output_dir": "python_examples/spatial_example/spatial_outputs",
