@@ -327,7 +327,7 @@ filename = os.path.join(os.path.dirname(__file__), "spatial_outputs",
                         "output.csv")
 df = pd.read_csv(filename)
 
-df = df[df['time'] < 200]
+# df = df[df['time'] < 200]
 
 locations = np.unique(
     np.transpose(np.stack((df["location_x"], df["location_y"]))), axis=0

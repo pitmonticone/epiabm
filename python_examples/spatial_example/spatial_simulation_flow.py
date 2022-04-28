@@ -48,7 +48,7 @@ pe.routine.ToyPopulationFactory.assign_cell_locations(population, method='grid')
 
 # sim_ and file_params give details for the running of the simulations and
 # where output should be written to.
-sim_params = {"simulation_start_time": 0, "simulation_end_time": 5000,
+sim_params = {"simulation_start_time": 0, "simulation_end_time": 100,
               "initial_infected_number": 10, "initial_infect_cell": False}
 
 file_params = {"output_file": "output.csv",
@@ -62,7 +62,6 @@ sim.configure(
     population,
     [pe.sweep.InitialInfectedSweep()],
     [
-        pe.sweep.UpdatePlaceSweep(),
         pe.sweep.HouseholdSweep(),
         pe.sweep.SpatialSweep(),
         pe.sweep.QueueSweep(),
